@@ -1,0 +1,6 @@
+dependency-check/
+*.zip
+*.db
+.scannerwork/
+node_modules/
+*.log
