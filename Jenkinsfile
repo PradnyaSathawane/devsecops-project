@@ -17,7 +17,7 @@ pipeline {
 
         stage('Dependency Scan') {
             steps {
-                sh './dependency-check/bin/dependency-check.sh --project test --scan .'
+                sh '/opt/dependency-check/bin/dependency-check.sh --project test --scan .'
             }
         }
 
