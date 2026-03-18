@@ -17,7 +17,13 @@ pipeline {
 
         stage('Dependency Scan') {
             steps {
-                sh '/opt/dependency-check/bin/dependency-check.sh --project test --scan .'
+                sh '''
+                /opt/dependency-check/bin/dependency-check.sh \
+                --project test \
+                --scan . \
+                --nvdApiKey 59875C63-9822-F111-8369-129478FCB64D \
+                --format HTML
+       	        '''
             }
         }
 
