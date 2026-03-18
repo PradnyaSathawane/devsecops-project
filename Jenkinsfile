@@ -17,7 +17,7 @@ pipeline {
 
         stage('Dependency Scan') {
             steps {
-		timeout(time: 10, unit: 'MINUTES') {
+		timeout(time: 25, unit: 'MINUTES') {
                	    sh '''
                     /opt/dependency-check/bin/dependency-check.sh \
                     --project test \
