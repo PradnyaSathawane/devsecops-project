@@ -22,7 +22,7 @@ pipeline {
                     /opt/dependency-check/bin/dependency-check.sh \
                     --project test \
                     --scan . \
-                    --nvdApiKey 59875C63-9822-F111-8369-129478FCB64D \
+                    --nvdApiKey  20680eee-11c2-4ae5-a483-9dc286e45b1e \
                     --format HTML
        	            '''
 	       }
