@@ -23,7 +23,10 @@ pipeline {
 
         stage('Image Scan') {
             steps {
-                sh 'trivy image devsecops-app'
+                sh '''
+        	export TRIVY_CACHE_DIR=/tmp/trivy-cache
+       	        /usr/bin/trivy image --exit-code 1 --severity HIGH,CRITICAL devsecops-app
+        	'''
             }
         }
 
