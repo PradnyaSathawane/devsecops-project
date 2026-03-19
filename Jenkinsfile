@@ -41,7 +41,12 @@ pipeline {
 
         stage('Deploy to Kubernetes') {
             steps {
-                sh 'kubectl apply -f k8s/'
+                sh '''
+                export KUBECONFIG=/var/lib/jenkins/.kube/config
+                kubectl config use-context kind-devsecops-cluster
+                kubectl apply -f k8s/
+                '''
+
             }
         }
 
