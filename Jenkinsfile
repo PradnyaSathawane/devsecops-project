@@ -24,8 +24,18 @@ pipeline {
         stage('Image Scan') {
             steps {
                 sh '''
-        	trivy image --exit-code 0 --severity HIGH,CRITICAL devsecops-app
-        	'''
+                export TRIVY_CACHE_DIR=/tmp/trivy-cache
+                export TRIVY_TIMEOUT=10m
+
+                mkdir -p $TRIVY_CACHE_DIR
+
+                trivy image \
+                --cache-dir $TRIVY_CACHE_DIR \
+                --timeout 10m \
+                --severity HIGH,CRITICAL \
+                --exit-code 0 \
+                devsecops-app
+                '''
             }
         }
 
