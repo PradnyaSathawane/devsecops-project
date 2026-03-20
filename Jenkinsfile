@@ -22,7 +22,9 @@ pipeline {
                 --project "devsecops-project" \
                 --scan . \
                 --format HTML \
-                --out dependency-check-report
+                --out dependency-check-report \
+                --nvdApiDelay 2000 \
+                --disableCentral
                 '''
             }
         }
