@@ -22,8 +22,7 @@ pipeline {
                 --project "devsecops-project" \
                 --scan . \
                 --format HTML \
-                --out dependency-check-report \
-                --noupdate
+                --out dependency-check-report 
                 '''
             }
         }
