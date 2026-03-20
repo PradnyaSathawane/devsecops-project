@@ -17,7 +17,13 @@ pipeline {
 
         stage('Dependency Scan') {
             steps {
-		echo "Skipping heavy Dependency Check for faster pipeline"
+		sh '''
+                ./dependency-check/bin/dependency-check.sh \
+                --project "devsecops-project" \
+                --scan . \
+                --format HTML \
+                --out dependency-check-report
+                '''
             }
         }
 
