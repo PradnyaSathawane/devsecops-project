@@ -23,8 +23,7 @@ pipeline {
                 --scan . \
                 --format HTML \
                 --out dependency-check-report \
-                --nvdApiDelay 2000 \
-                --disableCentral
+                --noupdate
                 '''
             }
         }
