@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    environment {
+     NVD_API_KEY = '20680eee-11c2-4ae5-a483-9dc286e45b1e'
+ }
+
     stages {
 
         stage('Build') {
@@ -19,10 +23,11 @@ pipeline {
             steps {
 		sh '''
                 ./dependency-check/bin/dependency-check.sh \
-                --project "devsecops-project" \
+                --project devsecops-project \
                 --scan . \
                 --format HTML \
-                --out dependency-check-report 
+                --out dependency-check-report \
+                --nvdApiKey $NVD_API_KEY || true
                 '''
             }
         }
